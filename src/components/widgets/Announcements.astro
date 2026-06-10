@@ -1,9 +1,16 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import { Icon } from 'astro-icon/components';
 
 const posts = await getCollection('post', (entry) => !entry.data.draft);
 posts.sort((a, b) => (b.data.publishDate?.valueOf() ?? 0) - (a.data.publishDate?.valueOf() ?? 0));
+
+const renderedPosts = await Promise.all(
+  posts.map(async (post) => {
+    const { Content } = await render(post);
+    return { ...post, Content };
+  })
+);
 ---
 
 <section id="announcements" class="py-20 md:py-28 bg-page">
@@ -14,9 +21,9 @@ posts.sort((a, b) => (b.data.publishDate?.valueOf() ?? 0) - (a.data.publishDate?
     </div>
 
     {
-      posts.length > 0 ? (
-        <div class="space-y-8">
-          {posts.map((post) => (
+      renderedPosts.length > 0 ? (
+        <div class="space-y-12">
+          {renderedPosts.map((post) => (
             <article class="bg-card rounded-lg shadow-sm p-6 md:p-8 border border-border/20">
               <div class="flex items-center gap-2 text-muted text-sm mb-3">
                 <Icon name="tabler:calendar" class="w-4 h-4" />
@@ -29,13 +36,9 @@ posts.sort((a, b) => (b.data.publishDate?.valueOf() ?? 0) - (a.data.publishDate?
                 </time>
               </div>
               <h3 class="font-serif text-2xl text-heading mb-3">{post.data.title}</h3>
-              {post.data.excerpt && <p class="text-muted leading-relaxed">{post.data.excerpt}</p>}
-              <a
-                href={`/announcements/${post.id.replace(/\.mdx?$/, '')}`}
-                class="inline-block mt-4 text-primary hover:underline text-sm font-medium"
-              >
-                Read more →
-              </a>
+              <div class="prose prose-lg max-w-none prose-headings:font-serif prose-a:text-primary">
+                <post.Content />
+              </div>
             </article>
           ))}
         </div>
