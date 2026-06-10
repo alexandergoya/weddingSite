@@ -1,0 +1,22 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import WeddingHeader from '~/components/widgets/WeddingHeader.astro';
+
+import type { MetaData } from '~/types';
+
+export interface Props {
+  metadata?: MetaData;
+}
+
+const { metadata } = Astro.props;
+---
+
+<Layout metadata={metadata}>
+  <slot name="header">
+    <WeddingHeader />
+  </slot>
+  <main>
+    <slot />
+  </main>
+  <slot name="footer" />
+</Layout>

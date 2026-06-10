@@ -1,0 +1,65 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section id="details" class="py-20 md:py-28 bg-page">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <p class="text-accent font-serif text-sm tracking-widest uppercase mb-2">When & Where</p>
+      <h2 class="font-serif text-4xl md:text-5xl text-heading">Event Details</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 mb-12">
+      <div class="bg-card rounded-lg shadow-sm p-8 border border-border/20 text-center">
+        <Icon name="tabler:calendar-heart" class="w-10 h-10 text-accent mx-auto mb-4" />
+        <h3 class="font-serif text-xl text-heading mb-2">The Date</h3>
+        <p class="text-default text-lg">August 28, 2026</p>
+        <p class="text-muted text-sm mt-1">Friday</p>
+      </div>
+
+      <div class="bg-card rounded-lg shadow-sm p-8 border border-border/20 text-center">
+        <Icon name="tabler:map-pin" class="w-10 h-10 text-accent mx-auto mb-4" />
+        <h3 class="font-serif text-xl text-heading mb-2">The Venue</h3>
+        <p class="text-default text-lg">The Forge Social House</p>
+        <a
+          href="https://forgesocialhouse.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary text-sm mt-1 inline-block hover:underline"
+        >
+          View venue website →
+        </a>
+      </div>
+
+      <div class="bg-card rounded-lg shadow-sm p-8 border border-border/20 text-center">
+        <Icon name="tabler:clock" class="w-10 h-10 text-accent mx-auto mb-4" />
+        <h3 class="font-serif text-xl text-heading mb-2">The Time</h3>
+        <p class="text-default">Ceremony: 7:00 PM</p>
+        <p class="text-default">Reception: 8:00 PM</p>
+        <p class="text-muted text-sm mt-1">Until 11:00 PM</p>
+      </div>
+    </div>
+
+    <div class="bg-card rounded-lg shadow-sm p-8 border border-border/20">
+      <h3 class="font-serif text-2xl text-heading mb-4 text-center">Schedule</h3>
+      <div class="max-w-md mx-auto space-y-4">
+        <div class="flex items-center justify-between py-3 border-b border-border/20">
+          <span class="text-default font-medium">Ceremony</span>
+          <span class="text-muted">7:00 PM</span>
+        </div>
+        <div class="flex items-center justify-between py-3 border-b border-border/20">
+          <span class="text-default font-medium">Cocktail Hour</span>
+          <span class="text-muted">7:30 PM</span>
+        </div>
+        <div class="flex items-center justify-between py-3 border-b border-border/20">
+          <span class="text-default font-medium">Reception</span>
+          <span class="text-muted">8:00 PM</span>
+        </div>
+        <div class="flex items-center justify-between py-3 border-b border-border/20">
+          <span class="text-default font-medium">Last Dance</span>
+          <span class="text-muted">11:00 PM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

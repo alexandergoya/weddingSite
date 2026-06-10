@@ -1,0 +1,29 @@
+---
+import Layout from '~/layouts/WeddingLayout.astro';
+import Hero from '~/components/widgets/WeddingHero.astro';
+import OurStory from '~/components/widgets/OurStory.astro';
+import EventDetails from '~/components/widgets/EventDetails.astro';
+import PhotoGallery from '~/components/widgets/PhotoGallery.astro';
+import Announcements from '~/components/widgets/Announcements.astro';
+import RSVP from '~/components/widgets/RSVP.astro';
+import FAQs from '~/components/widgets/WeddingFAQs.astro';
+import Accommodations from '~/components/widgets/Accommodations.astro';
+import Footer from '~/components/widgets/WeddingFooter.astro';
+
+const metadata = {
+  title: 'Alexander & Elle — August 28, 2026',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero />
+  <OurStory />
+  <EventDetails />
+  <PhotoGallery />
+  <Announcements />
+  <RSVP />
+  <FAQs />
+  <Accommodations />
+  <Footer />
+</Layout>

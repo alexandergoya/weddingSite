@@ -1,0 +1,69 @@
+site:
+  name: Alexander & Elle
+  site: 'https://alexanderg.github.io'
+  base: '/weddingSite'
+  trailingSlash: false
+
+  googleSiteVerificationId: ''
+
+metadata:
+  title:
+    default: Alexander & Elle — August 28, 2026
+    template: '%s — Alexander & Elle'
+  description: "Join us as we celebrate the marriage of Alexander and Elle on August 28, 2026 at The Forge Social House."
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: Alexander & Elle Wedding
+    images:
+      - url: '~/assets/images/default.png'
+        width: 1200
+        height: 628
+    type: website
+  twitter:
+    handle: ''
+    site: ''
+    cardType: summary_large_image
+
+i18n:
+  language: en
+  textDirection: ltr
+
+apps:
+  blog:
+    isEnabled: true
+    postsPerPage: 6
+
+    post:
+      isEnabled: true
+      permalink: '/%slug%'
+
+    list:
+      isEnabled: true
+      pathname: 'announcements'
+      robots:
+        index: true
+
+    category:
+      isEnabled: false
+      pathname: 'category'
+      robots:
+        index: true
+
+    tag:
+      isEnabled: false
+      pathname: 'tag'
+      robots:
+        index: false
+
+    isRelatedPostsEnabled: false
+    relatedPostsCount: 0
+
+analytics:
+  vendors:
+    googleAnalytics:
+      id: null
+
+ui:
+  theme: 'light:only'
