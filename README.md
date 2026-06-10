@@ -301,14 +301,3 @@ Initially created by **Arthelokyo** and maintained by a community of [contributo
 
 **AstroWind** is licensed under the MIT license — see the [LICENSE](./LICENSE.md) file for details.
 
-elleandalexander.com
-ellealexander.com
-ellealexander.xyz
-ellealexander.love
-ellealexander.lol
-ellealexander.life
-.wedding is $26/yr
-.fyi
-.one
-.beauty
-.vegas
