@@ -1,7 +1,7 @@
 ---
 title: 'What Should We Call My Masterpiece?'
 publishDate: 2026-06-09
-excerpt: 'Domain names'
+excerpt: 'Like Domain-wise'
 draft: false
 ---
 
