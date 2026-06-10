@@ -10,7 +10,7 @@ metadata:
   title:
     default: Alexander & Elle — August 28, 2026
     template: '%s — Alexander & Elle'
-  description: "Join us as we celebrate the marriage of Alexander and Elle on August 28, 2026 at The Forge Social House."
+  description: 'Join us as we celebrate the marriage of Alexander and Elle on August 28, 2026 at The Forge Social House.'
   robots:
     index: true
     follow: true

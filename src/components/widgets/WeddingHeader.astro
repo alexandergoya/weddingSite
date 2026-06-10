@@ -22,14 +22,16 @@ const navLinks = [
         </a>
 
         <nav class="hidden md:flex items-center space-x-6" aria-label="Main navigation">
-          {navLinks.map((link) => (
-            <a
-              href={link.href}
-              class="text-sm font-medium text-default/80 hover:text-primary transition-colors duration-200"
-            >
-              {link.text}
-            </a>
-          ))}
+          {
+            navLinks.map((link) => (
+              <a
+                href={link.href}
+                class="text-sm font-medium text-default/80 hover:text-primary transition-colors duration-200"
+              >
+                {link.text}
+              </a>
+            ))
+          }
           <ThemeToggle />
         </nav>
 
@@ -50,14 +52,13 @@ const navLinks = [
 
     <div id="mobile-menu" class="hidden md:hidden border-t border-border/20">
       <nav class="px-4 py-4 space-y-2" aria-label="Mobile navigation">
-        {navLinks.map((link) => (
-          <a
-            href={link.href}
-            class="block py-2 text-default/80 hover:text-primary transition-colors"
-          >
-            {link.text}
-          </a>
-        ))}
+        {
+          navLinks.map((link) => (
+            <a href={link.href} class="block py-2 text-default/80 hover:text-primary transition-colors">
+              {link.text}
+            </a>
+          ))
+        }
       </nav>
     </div>
   </div>

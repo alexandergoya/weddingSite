@@ -16,49 +16,54 @@ photos.sort((a, b) => a.data.order - b.data.order);
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {photos.map((photo) => {
-        const imgSrc = `${base}${photo.data.image.replace(/^\//, '')}`;
-        return (
-          <a
-            href={imgSrc}
-            class="group aspect-square rounded-lg overflow-hidden bg-primary/5 border border-border/20 block"
-            data-glightbox
-            data-title={photo.data.title}
-            data-description={photo.data.caption || ''}
-          >
-            <img
-              src={imgSrc}
-              alt={photo.data.title}
-              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              loading="lazy"
-            />
-          </a>
-        );
-      })}
+      {
+        photos.map((photo) => {
+          const imgSrc = `${base.replace(/\/$/, '')}/${photo.data.image.replace(/^\//, '')}`;
+          return (
+            <a
+              href={imgSrc}
+              class="group aspect-square rounded-lg overflow-hidden bg-primary/5 border border-border/20 block"
+              data-glightbox
+              data-title={photo.data.title}
+              data-description={photo.data.caption || ''}
+            >
+              <img
+                src={imgSrc}
+                alt={photo.data.title}
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+            </a>
+          );
+        })
+      }
     </div>
 
-    {photos.length === 0 && (
-      <div class="text-center py-12 text-muted">
-        <Icon name="tabler:photo" class="w-12 h-12 mx-auto mb-4 opacity-50" />
-        <p>Photos coming soon!</p>
-      </div>
-    )}
+    {
+      photos.length === 0 && (
+        <div class="text-center py-12 text-muted">
+          <Icon name="tabler:photo" class="w-12 h-12 mx-auto mb-4 opacity-50" />
+          <p>Photos coming soon!</p>
+        </div>
+      )
+    }
   </div>
 </section>
 
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/css/glightbox.min.css"
-/>
-<script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/js/glightbox.min.js" />
-<script>
-  import GLightbox from 'https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/js/glightbox.min.js';
-
-  document.addEventListener('DOMContentLoaded', () => {
-    GLightbox({
-      selector: '[data-glightbox]',
-      touchNavigation: true,
-      loop: true,
-    });
-  });
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/css/glightbox.min.css" />
+<script is:inline>
+  (function () {
+    const s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/js/glightbox.min.js';
+    s.onload = function () {
+      if (typeof GLightbox !== 'undefined') {
+        GLightbox({
+          selector: '[data-glightbox]',
+          touchNavigation: true,
+          loop: true,
+        });
+      }
+    };
+    document.head.appendChild(s);
+  })();
 </script>

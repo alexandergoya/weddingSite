@@ -40,7 +40,6 @@ const timeline = [
     description: 'Join us as we celebrate our love surrounded by family and friends.',
     image: 'photos/ElleAlexander_16.jpg',
   },
-  
 ];
 ---
 
@@ -52,43 +51,41 @@ const timeline = [
     </div>
 
     <div class="relative">
-      <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border/50 -translate-x-1/2" />
+      <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border/50 -translate-x-1/2"></div>
 
-      {timeline.map((item, index) => (
-        <div class:list={[
-          'relative flex flex-col md:flex-row items-start md:items-center mb-12 last:mb-0',
-          index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse',
-        ]}>
-          <div class:list={[
-            'w-full md:w-1/2',
-            index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12',
-          ]}>
-            <div class="bg-card rounded-lg shadow-sm p-6 border border-border/20">
-              <span class="text-accent font-serif text-sm tracking-wider">{item.date}</span>
-              <h3 class="font-serif text-xl text-heading mt-1 mb-2">{item.title}</h3>
-              <p class="text-muted text-sm leading-relaxed">{item.description}</p>
+      {
+        timeline.map((item, index) => (
+          <div
+            class:list={[
+              'relative flex flex-col md:flex-row items-start md:items-center mb-12 last:mb-0',
+              index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse',
+            ]}
+          >
+            <div class:list={['w-full md:w-1/2', index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12']}>
+              <div class="bg-card rounded-lg shadow-sm p-6 border border-border/20">
+                <span class="text-accent font-serif text-sm tracking-wider">{item.date}</span>
+                <h3 class="font-serif text-xl text-heading mt-1 mb-2">{item.title}</h3>
+                <p class="text-muted text-sm leading-relaxed">{item.description}</p>
+              </div>
+            </div>
+
+            <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-primary border-4 border-page -translate-x-1/2 flex items-center justify-center z-10">
+              <Icon name="tabler:heart" class="w-4 h-4 text-white" />
+            </div>
+
+            <div class:list={['w-full md:w-1/2 mt-4 md:mt-0', index % 2 === 0 ? 'md:pl-12' : 'md:pr-12']}>
+              <div class="aspect-square rounded-lg overflow-hidden bg-primary/5 border border-border/20">
+                <img
+                  src={`${base.replace(/\/$/, '')}/${item.image}`}
+                  alt={item.title}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
-
-          <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-primary border-4 border-page -translate-x-1/2 flex items-center justify-center z-10">
-            <Icon name="tabler:heart" class="w-4 h-4 text-white" />
-          </div>
-
-          <div class:list={[
-            'w-full md:w-1/2 mt-4 md:mt-0',
-            index % 2 === 0 ? 'md:pl-12' : 'md:pr-12',
-          ]}>
-            <div class="aspect-square rounded-lg overflow-hidden bg-primary/5 border border-border/20">
-              <img
-                src={`${base}${item.image}`}
-                alt={item.title}
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>

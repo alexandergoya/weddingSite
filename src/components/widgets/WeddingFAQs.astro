@@ -33,20 +33,20 @@ const faqs = [
     </div>
 
     <div class="space-y-4">
-      {faqs.map((faq, index) => (
-        <details class="group bg-card rounded-lg border border-border/20 overflow-hidden">
-          <summary class="flex items-center justify-between cursor-pointer p-6 text-default font-medium hover:text-primary transition-colors list-none">
-            <span class="font-serif text-lg">{faq.question}</span>
-            <Icon
-              name="tabler:chevron-down"
-              class="w-5 h-5 text-muted transition-transform duration-200 group-open:rotate-180"
-            />
-          </summary>
-          <div class="px-6 pb-6 text-muted leading-relaxed">
-            {faq.answer}
-          </div>
-        </details>
-      ))}
+      {
+        faqs.map((faq) => (
+          <details class="group bg-card rounded-lg border border-border/20 overflow-hidden">
+            <summary class="flex items-center justify-between cursor-pointer p-6 text-default font-medium hover:text-primary transition-colors list-none">
+              <span class="font-serif text-lg">{faq.question}</span>
+              <Icon
+                name="tabler:chevron-down"
+                class="w-5 h-5 text-muted transition-transform duration-200 group-open:rotate-180"
+              />
+            </summary>
+            <div class="px-6 pb-6 text-muted leading-relaxed">{faq.answer}</div>
+          </details>
+        ))
+      }
     </div>
   </div>
 </section>
