@@ -1,7 +1,7 @@
 site:
   name: Elle & Alexander
-  site: 'https://alexanderg.github.io'
-  base: '/weddingSite'
+  site: 'https://ellealexander.lol'
+  base: '/'
   trailingSlash: false
 
   googleSiteVerificationId: ''
