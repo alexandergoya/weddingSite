@@ -1,5 +1,5 @@
 site:
-  name: Alexander & Elle
+  name: Elle & Alexander
   site: 'https://alexanderg.github.io'
   base: '/weddingSite'
   trailingSlash: false
@@ -8,14 +8,14 @@ site:
 
 metadata:
   title:
-    default: Alexander & Elle — August 28, 2026
-    template: '%s — Alexander & Elle'
-  description: 'Join us as we celebrate the marriage of Alexander and Elle on August 28, 2026 at The Forge Social House.'
+    default: Elle & Alexander — August 28, 2026
+    template: '%s — Elle & Alexander'
+  description: 'Join us as we celebrate the marriage of Elle and Alexander on August 28, 2026 at TBD.'
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: Alexander & Elle Wedding
+    site_name: Elle & Alexander Wedding
     images:
       - url: '~/assets/images/default.png'
         width: 1200
