@@ -5,46 +5,70 @@ const base = import.meta.env.BASE_URL;
 
 const timeline = [
   {
-    date: '2022',
-    title: 'We Met',
-    description: 'And it was very k',
-    image: 'photos/ElleAlexander_07.jpg',
+    date: '2007',
+    title: 'A Roma(nce) in Tacoma',
+    description: `Elle and Alex met at the University of Puget Sound as freshmen. They dated very functionally and definitely-not-at-all-like-they-were-nineteen-and-idiots. Then Elle summarily dumped Alex in his dorm floor's laundry room.
+
+Alex gave Elle a book called "Ants Have Sex in Your Beer" and immediately transferred to UNLV and moved back to Vegas.
+
+However, they kept in touch.`,
+    image: 'photos/ElleAlexander_70.jpg',
   },
   {
-    date: '2022',
-    title: 'Totally unpromted first date prosal',
-    description: 'Coffee turned into dinner, and we knew this was something special. We also knew we could do better.',
-    image: 'photos/ElleAlexander_08.jpg',
+    date: '2016',
+    title: 'What If We Dated Again? Jk. Unless...?',
+    description: `Elle called Alex on his birthday in November 2015 and — tempted by the promise of a hot date and shiny new in-unit laundry machines — Alex visited her in Seattle. Two months later Elle visited Alex in Vegas, where he low-key ditched her for five hours to go to the Democratic Party caucus where he didn't even get Bernie nominated.
+
+Elle was unimpressed and flew home to date some other dude for a while.`,
+    image: 'photos/ElleAlexander_68.jpg',
   },
   {
     date: '2024',
-    title: 'We dated again somehow',
-    description: 'better',
-    image: 'photos/ElleAlexander_09.jpg',
+    title: 'Ah Sh*t, Here We Go Again',
+    description: `Alex called Elle on her birthday in January 2024. Elle got off the phone and thought, "it was great catching up with him!" Alex got off the phone and promptly spent the next month listening to one thousand podcasts about whether or not it's a good idea to date your ex.
+
+Creatures of habit, Alex and Elle started visiting each other again, even as Elle was busy fleeing the hell out of NYC and making a run back to Seattle.`,
+    image: 'photos/ElleAlexander_58.jpg',
+  },
+  {
+    date: 'April 8, 2024',
+    title: 'Ohio *Is* For Lovers, Actually',
+    description: `Elle gets on a red-eye flight, makes it to Pittsburgh in time for Alex to pick her up in an ancient van with an anxiety disorder. They both make it into Ohio in time to be in the path of totality for a solar eclipse.
+
+Never ones to get things done early, they make things official about two minutes before the main event.`,
+    image: 'photos/ElleAlexander_54.jpg',
+  },
+  {
+    date: '2024',
+    title: 'Long Distance is Bullsh*t',
+    description: 'Elle and Alex visit each other in Tacoma and D.C. for the next year.',
+    image: 'photos/ElleAlexander_45.jpg',
+  },
+  {
+    date: '2024',
+    title: 'At Least the Street Food Was Really Good',
+    description: `One adventure featured a road trip with Alex's family to Baja Mexico, where they went on a nine-hour boat ride with literally no food and then got shaken down for a bribe by crooked cops literally 100 feet from the border.
+
+The least the cops could have done was let them cut in the two-hour line, but no.`,
+    image: 'photos/ElleAlexander_52.jpg',
+  },
+  {
+    date: '2025',
+    title: "Hittin' the Bricks",
+    description: `Alex bails on D.C. right as things start getting uh not great and he and Elle move into a townhouse in Seattle. All of the appliances are low-grade malevolent, there are too many stairs, and neither of them have ever been happier.
+
+They learn the joys of sharing popcorn, couch naps, and a continuous water heater that never runs out of hot water.`,
+    image: 'photos/ElleAlexander_23.jpg',
   },
   {
     date: '2026',
-    title: 'We dated a third time',
-    description: 'Date your ex plz',
-    image: 'photos/ElleAlexander_10.jpg',
-  },
-  {
-    date: '2026',
-    title: 'Where we claimed each other on the mountaintop',
-    description: "A moment we'll never forget — she said yes! Or maybe 'what's in your pocket?' ",
-    image: 'photos/ElleAlexander_14.jpg',
-  },
-  {
-    date: '2026',
-    title: 'We are very good at dating now',
-    description: 'Some might say the best',
-    image: 'photos/ElleAlexander_11.jpg',
-  },
-  {
-    date: '2026',
-    title: 'fin',
-    description: 'Join us as we celebrate our love surrounded by family and friends.',
-    image: 'photos/ElleAlexander_16.jpg',
+    title: "We'll Do It Live",
+    description: `On a vacation to Canada, Alex is unusually protective of his suitcase and bag, foiling Elle's desire to get into absolutely everything.
+
+At a scenic overlook in Vancouver, Elle finally breaks and asks Alex to marry her about 14 seconds before he had planned to. Alex pulled a ring out of his pocket for an Uno Reverse and got on one knee without answering in order to win the first-to-ask prize on a technicality.
+
+Thankfully, they both said yes.`,
+    image: 'photos/ElleAlexander_06.jpg',
   },
 ];
 ---
@@ -80,11 +104,11 @@ const timeline = [
             </div>
 
             <div class:list={['w-full md:w-1/2 mt-4 md:mt-0', index % 2 === 0 ? 'md:pl-12' : 'md:pr-12']}>
-              <div class="aspect-square rounded-lg overflow-hidden bg-primary/5 border border-border/20">
+              <div class="rounded-lg overflow-hidden bg-primary/5 border border-border/20">
                 <img
                   src={`${base.replace(/\/$/, '')}/${item.image}`}
                   alt={item.title}
-                  class="w-full h-full object-cover"
+                  class="w-full object-contain max-h-96"
                   loading="lazy"
                 />
               </div>
