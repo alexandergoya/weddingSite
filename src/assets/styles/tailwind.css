@@ -12,6 +12,9 @@
   --color-accent: var(--aw-color-accent);
   --color-default: var(--aw-color-text-default);
   --color-muted: var(--aw-color-text-muted);
+  --color-heading: var(--aw-color-text-heading);
+  --color-border: var(--aw-color-border);
+  --color-page: var(--aw-color-bg-page);
 
   --font-sans:
     'var(--aw-font-sans, ui-sans-serif)', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
@@ -43,6 +46,10 @@
 
 @utility bg-light {
   background-color: var(--aw-color-bg-page);
+}
+
+@utility bg-card {
+  background-color: var(--aw-color-bg-card);
 }
 
 @utility text-page {
