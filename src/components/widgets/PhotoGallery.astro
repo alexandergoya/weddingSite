@@ -8,9 +8,9 @@ const photos = await getCollection('photo', (entry) => entry.data.isInGallery);
 photos.sort((a, b) => a.data.order - b.data.order);
 ---
 
-<section id="photos" class="py-20 md:py-28 bg-page">
+<section id="photos" class="py-12 md:py-16 bg-page">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
+    <div class="text-center mb-10">
       <p class="text-accent font-serif text-sm tracking-widest uppercase mb-2">Moments Together</p>
       <h2 class="font-serif text-4xl md:text-5xl text-heading">Our Photos</h2>
     </div>
@@ -24,8 +24,6 @@ photos.sort((a, b) => a.data.order - b.data.order);
               href={imgSrc}
               class="group aspect-square rounded-lg overflow-hidden bg-primary/5 border border-border/20 block"
               data-glightbox
-              data-title={photo.data.title}
-              data-description={photo.data.caption || ''}
             >
               <img
                 src={imgSrc}
