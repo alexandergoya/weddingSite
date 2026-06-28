@@ -5,29 +5,29 @@ const base = import.meta.env.BASE_URL;
 
 const timeline = [
   {
-    date: '2007',
+    date: 'Freshman Year 2007',
     title: 'A Roma(nce) in Tacoma',
-    description: `Elle and Alex met at the University of Puget Sound as freshmen. They dated very functionally and definitely-not-at-all-like-they-were-nineteen-and-idiots. Then Elle summarily dumped Alex in his dorm floor's laundry room.
+    description: `Elle and Alex met at the University of Puget Sound. They dated very functionally and definitely not at all like they were eighteen and idiots. Then Elle summarily dumped Alex in his dorm floor's laundry room.
 
-Alex gave Elle a book called "Ants Have Sex in Your Beer" and immediately transferred to UNLV and moved back to Vegas.
-
-However, they kept in touch.`,
+    Alex gave Elle a book called "Ants Have Sex in Your Beer" and immediately transferred to UNLV and moved back to Vegas.
+    
+    However, they kept in touch.`,
     image: 'photos/ElleAlexander_70.jpg',
   },
   {
-    date: '2016',
+    date: 'Winter 2016',
     title: 'What If We Dated Again? Jk. Unless...?',
     description: `Elle called Alex on his birthday in November 2015 and — tempted by the promise of a hot date and shiny new in-unit laundry machines — Alex visited her in Seattle. Two months later Elle visited Alex in Vegas, where he low-key ditched her for five hours to go to the Democratic Party caucus where he didn't even get Bernie nominated.
 
-Elle was unimpressed and flew home to date some other dude for a while.`,
-    image: 'photos/ElleAlexander_68.jpg',
+    Elle was unimpressed and flew home to date some other dude for a while.`,
+    image: 'photos/ElleAlexander_69.jpg',
   },
   {
-    date: '2024',
+    date: 'Spring 2024',
     title: 'Ah Sh*t, Here We Go Again',
     description: `Alex called Elle on her birthday in January 2024. Elle got off the phone and thought, "it was great catching up with him!" Alex got off the phone and promptly spent the next month listening to one thousand podcasts about whether or not it's a good idea to date your ex.
 
-Creatures of habit, Alex and Elle started visiting each other again, even as Elle was busy fleeing the hell out of NYC and making a run back to Seattle.`,
+    Creatures of habit, Alex and Elle started visiting each other again, even as Elle was busy fleeing the hell out of NYC and making a run back to Tacoma.`,
     image: 'photos/ElleAlexander_58.jpg',
   },
   {
@@ -35,33 +35,39 @@ Creatures of habit, Alex and Elle started visiting each other again, even as Ell
     title: 'Ohio *Is* For Lovers, Actually',
     description: `Elle gets on a red-eye flight, makes it to Pittsburgh in time for Alex to pick her up in an ancient van with an anxiety disorder. They both make it into Ohio in time to be in the path of totality for a solar eclipse.
 
-Never ones to get things done early, they make things official about two minutes before the main event.`,
+  Never ones to get things done early, they make things official about two minutes before the main event.
+
+  Elle and Alex visit each other in Tacoma and D.C. for the next year.`,
     image: 'photos/ElleAlexander_54.jpg',
   },
   {
-    date: '2024',
-    title: 'Long Distance is Bullsh*t',
-    description: 'Elle and Alex visit each other in Tacoma and D.C. for the next year.',
-    image: 'photos/ElleAlexander_45.jpg',
-  },
-  {
-    date: '2024',
+    date: 'Summer 2024',
     title: 'At Least the Street Food Was Really Good',
     description: `One adventure featured a road trip with Alex's family to Baja Mexico, where they went on a nine-hour boat ride with literally no food and then got shaken down for a bribe by crooked cops literally 100 feet from the border.
 
-The least the cops could have done was let them cut in the two-hour line, but no.`,
+    The least the cops could have done was let them cut in the two-hour line, but no.`,
     image: 'photos/ElleAlexander_52.jpg',
   },
   {
-    date: '2025',
+    date: 'Winter 2024',
+    title: 'When in Rome',
+    description: `The lovebirds join Alex's mother and her friend Laura on a trip to Rome.
+    
+    They get scammed into buying expensive tickets for the Colosseum and get there too late to go inside, but they spend half a day wandering the Foro and then Alex gets his phone straight up pickpocketed on the Metro.
+    
+    They get dressed to the nines and go to a fancy event featuring not enough food but very strong drinks in a remote Black Mirror-esque manse, another fancy event featuring not enough food again but this time with nonconsensual fish dinner and four sexy Zorros.`,
+    image: 'photos/ElleAlexander_31.jpg',
+  },
+  {
+    date: 'March 2025',
     title: "Hittin' the Bricks",
     description: `Alex bails on D.C. right as things start getting uh not great and he and Elle move into a townhouse in Seattle. All of the appliances are low-grade malevolent, there are too many stairs, and neither of them have ever been happier.
 
-They learn the joys of sharing popcorn, couch naps, and a continuous water heater that never runs out of hot water.`,
+    They learn the joys of sharing popcorn, couch naps, and a continuous water heater that never runs out of hot water.`,
     image: 'photos/ElleAlexander_23.jpg',
   },
   {
-    date: '2026',
+    date: 'May 2026',
     title: "We'll Do It Live",
     description: `On a vacation to Canada, Alex is unusually protective of his suitcase and bag, foiling Elle's desire to get into absolutely everything.
 
@@ -76,7 +82,6 @@ Thankfully, they both said yes.`,
 <section id="our-story" class="py-12 md:py-16 bg-page">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-10">
-      <p class="text-accent font-serif text-sm tracking-widest uppercase mb-2">How It All Began</p>
       <h2 class="font-serif text-4xl md:text-5xl text-heading">Our Story</h2>
     </div>
 
@@ -91,11 +96,11 @@ Thankfully, they both said yes.`,
               index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse',
             ]}
           >
-            <div class:list={['w-full md:w-1/2', index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12']}>
+            <div class:list={['w-full md:w-1/2', index % 2 === 0 ? 'md:pr-12' : 'md:pl-12']}>
               <div class="bg-card rounded-lg shadow-sm p-6 border border-border/20">
                 <span class="text-accent font-serif text-sm tracking-wider">{item.date}</span>
                 <h3 class="font-serif text-xl text-heading mt-1 mb-2">{item.title}</h3>
-                <p class="text-muted text-sm leading-relaxed">{item.description}</p>
+                <p class="text-muted text-sm leading-relaxed whitespace-pre-line">{item.description}</p>
               </div>
             </div>
 
