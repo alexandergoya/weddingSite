@@ -16,8 +16,8 @@
 | Desert theme      | The alternate visual direction: warm terracotta, sandy beige, burnt sienna, serif fonts                                                                      |
 | Sections          | Hero, Our Story (timeline + photos), Event Details, Photos (grid + GLightbox), Announcements (Markdown), RSVP (Formspree), FAQ, Accommodations (TBD content) |
 | Photo collection  | Photos managed via Astro content collections — each photo has a Markdown entry in `src/data/photo/` with caption, date, and order metadata                   |
-| Wedding date      | August 28, 2026                                                                                                                                              |
-| Wedding venue     | The Forge Social House                                                                                                                                       |
+| Wedding date      | October 15, 2026                                                                                                                                             |
+| Wedding venue     | Las Vegas, NV House                                                                                                                                          |
 | Ceremony time     | 7:00 PM                                                                                                                                                      |
 | Reception time    | 8:00 PM                                                                                                                                                      |
 | Event end time    | 11:00 PM                                                                                                                                                     |

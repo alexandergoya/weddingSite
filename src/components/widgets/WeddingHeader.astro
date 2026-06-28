@@ -1,16 +1,15 @@
 ---
 import { Icon } from 'astro-icon/components';
-import ThemeToggle from './ThemeToggle.astro';
 
 const navLinks = [
   { text: 'Our Story', href: '#our-story' },
   { text: 'Details', href: '#details' },
-  { text: 'Photos', href: '#photos' },
-  { text: 'Announcements', href: '#announcements' },
   { text: 'RSVP', href: '#rsvp' },
-  { text: 'FAQ', href: '#faq' },
+  { text: 'Announcements', href: '#announcements' },
+  { text: 'FAQs', href: '#faq' },
   { text: 'Accommodations', href: '#accommodations' },
   { text: 'Registry', href: '#registry' },
+  { text: 'Photos', href: '#photos' },
 ];
 ---
 
@@ -33,11 +32,9 @@ const navLinks = [
               </a>
             ))
           }
-          <ThemeToggle />
         </nav>
 
         <div class="md:hidden flex items-center space-x-3">
-          <ThemeToggle />
           <button
             id="mobile-menu-btn"
             type="button"

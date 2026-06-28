@@ -8,9 +8,11 @@ draft: true
 We've been looking into domain names for the wedding site...
 
 ## Top Pick (for top men)
+
 - **ellealexander.lol**
 
 ## Also Available
+
 - elleandalexander.com
 - ellealexander.com
 - ellealexander.xyz
@@ -18,6 +20,7 @@ We've been looking into domain names for the wedding site...
 - ellealexander.life
 
 ## Other TLDs Considered
+
 - .wedding — $26/yr
 - .fyi
 - .one

@@ -4,14 +4,14 @@ Wedding website built with Astro v6 + Tailwind CSS v4. Deployed at [ellealexande
 
 ## Commands
 
-| Command           | Action                                   |
-| ----------------- | ---------------------------------------- |
-| `npm install`     | Install dependencies                     |
-| `npm run dev`     | Start dev server at `localhost:4321`     |
-| `npm run build`   | Production build to `./dist/`            |
-| `npm run preview` | Preview production build locally         |
-| `npm run check`   | Run astro check + ESLint + Prettier      |
-| `npm run fix`     | Auto-fix ESLint + Prettier issues        |
+| Command           | Action                               |
+| ----------------- | ------------------------------------ |
+| `npm install`     | Install dependencies                 |
+| `npm run dev`     | Start dev server at `localhost:4321` |
+| `npm run build`   | Production build to `./dist/`        |
+| `npm run preview` | Preview production build locally     |
+| `npm run check`   | Run astro check + ESLint + Prettier  |
+| `npm run fix`     | Auto-fix ESLint + Prettier issues    |
 
 Requires **Node.js >= 22.12.0**.
 
@@ -63,7 +63,7 @@ Edit `src/components/widgets/OurStory.astro`. Each entry in the `timeline` array
 title: 'ElleAlexander_NN'
 caption: 'Your caption here'
 date: 2024-01-01
-order: NN            # Sort order (use photo number)
+order: NN # Sort order (use photo number)
 image: 'photos/ElleAlexander_NN.jpg'
 isInGallery: true
 ---
@@ -82,7 +82,6 @@ publishDate: 2026-06-15
 excerpt: 'Short description shown in the feed'
 draft: false
 ---
-
 Write your post content here using Markdown.
 ```
 
