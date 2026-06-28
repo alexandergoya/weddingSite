@@ -1,106 +1,122 @@
-# AstroWind Agent Instructions
+# Wedding Site Agent Instructions
 
 ## Project Overview
 
-AstroWind is a free, open-source website template built with **Astro v6** and **Tailwind CSS v4**. It generates a fully static site optimized for performance, SEO, and accessibility.
+Single-page wedding website for Elle & Alexander (October 15, 2026). Built on the AstroWind template (Astro v6 + Tailwind CSS v4), heavily customized with wedding-specific widgets.
 
-**Stack:** Astro v6 | Tailwind CSS v4 | TypeScript 5.9 | MDX | Sharp
+**Stack:** Astro v6 | Tailwind CSS v4 | TypeScript 5.9 | Sharp
 
-## Quick Reference
+Domain context, glossary, and wedding details: see `CONTEXT.md`.
 
-| Command           | Purpose                             |
-| ----------------- | ----------------------------------- |
-| `npm run dev`     | Start dev server at localhost:4321  |
-| `npm run build`   | Production build to `./dist/`       |
-| `npm run preview` | Preview production build locally    |
-| `npm run check`   | Run astro check + ESLint + Prettier |
-| `npm run fix`     | Auto-fix ESLint + Prettier issues   |
+## Commands
 
-**Node.js requirement:** >= 22.12.0
+| Command           | Purpose                         |
+| ----------------- | ------------------------------- |
+| `npm run dev`     | Dev server at localhost:4321    |
+| `npm run build`   | Static build to `./dist/`       |
+| `npm run preview` | Preview production build        |
+| `npm run check`   | astro check + ESLint + Prettier |
+| `npm run fix`     | Auto-fix ESLint + Prettier      |
+
+**Node.js:** >= 22.12.0
 
 ## Architecture
 
-### Directory Structure
+### Config
+
+Site config is a plain TypeScript module at `src/config.ts` — **not** a YAML file or virtual module. Import directly:
+
+```typescript
+import { SITE, METADATA, APP_BLOG } from '~/config';
+```
+
+Exports: `SITE`, `I18N`, `METADATA`, `APP_BLOG`, `UI`.
+
+`astro.config.ts` reads `SITE.site`, `SITE.base`, `SITE.trailingSlash` from this file.
+
+### Key Directories
 
 ```
 src/
-  assets/styles/tailwind.css   # Tailwind v4 config (themes, utilities, plugins)
-  components/
-    common/        # Shared: Image, Metadata, Analytics, ToggleTheme
-    ui/            # Primitives: Button, Headline, WidgetWrapper, ItemGrid
-    widgets/       # Page sections: Hero, Features, Pricing, Header, Footer
-    blog/          # Blog: SinglePost, List, Pagination, Tags
-    CustomStyles.astro  # CSS variables for colors and fonts
-  content.config.ts    # Content Collections schema (Astro v6 location)
-  data/post/           # Blog posts (.md, .mdx)
-  layouts/             # Layout.astro, PageLayout.astro, MarkdownLayout.astro
-  pages/               # File-based routing
-  utils/               # blog.ts, images.ts, permalinks.ts, frontmatter.ts
-  config.yaml          # Site configuration (loaded as virtual module)
-  navigation.ts        # Navigation structure
-  types.d.ts           # TypeScript type definitions
-vendor/integration/    # Custom Astro integration for config loading
+  config.ts                  # Site config (SITE, I18N, METADATA, APP_BLOG, UI)
+  content.config.ts          # Content collections: post + photo
+  navigation.ts              # Empty — header/footer links are hardcoded in widgets
+  layouts/
+    WeddingLayout.astro      # Main layout (wraps Layout.astro + WeddingHeader)
+  pages/
+    index.astro              # Single-page wedding site (all sections)
+    [...blog]/               # Blog/announcements routes
+  components/widgets/        # Wedding sections: WeddingHero, OurStory, EventDetails,
+                             #   PhotoGallery, RSVP, Announcements, WeddingFAQs,
+                             #   Accommodations, Registry, WeddingFooter, WeddingHeader
+  data/
+    post/                    # Blog/announcement entries (.md/.mdx)
+    photo/                   # Photo collection entries (.md with frontmatter)
+public/
+  photos/                    # Actual photo image files (referenced by photo entries)
 ```
 
 ### Path Aliases
 
-Use `~/` to import from `src/`:
+`~/` maps to `src/` (configured in both `tsconfig.json` and `astro.config.ts` Vite alias).
 
-```typescript
-import Image from '~/components/common/Image.astro';
-import { SITE } from 'astrowind:config';
+### Tailwind CSS v4
+
+CSS-first config in `src/assets/styles/tailwind.css`:
+
+- Theme tokens via `@theme { --color-primary: var(--aw-color-primary); ... }`
+- Dark mode: class-based via `@variant dark (&:where(.dark, .dark *))`
+- Custom variant: `@custom-variant intersect (&:not([no-intersect]))`
+- Plugin: `@tailwindcss/typography`
+- Vite plugin `@tailwindcss/vite` (not an Astro integration)
+
+CSS variables for colors/fonts defined in `src/components/CustomStyles.astro`.
+
+**Note:** `tailwind-merge` is NOT installed or used despite being mentioned in upstream AstroWind docs.
+
+## Theme System
+
+Three themes controlled by `data-theme` attribute on `:root`:
+
+- **sedona** (default) — dusty blue/terracotta, the invitation watercolor palette
+- **forest** — deep greens, earth tones
+- **desert** — warm terracotta, sandy beige
+
+All theme tokens live in `src/components/CustomStyles.astro` with light + dark variants. Fonts: Playfair Display Variable (serif/heading) + Lato Variable (sans).
+
+## Photo Collection
+
+Photos are Astro content collection entries in `src/data/photo/` (e.g., `ph_01.md`). Each entry has frontmatter:
+
+```yaml
+title: 'ElleAlexander_01'
+caption: 'Add your photo caption here'
+date: 2024-01-01
+order: 17 # Controls display sort order
+image: 'photos/ElleAlexander_01.jpg' # Path relative to public/
+isInGallery: true
+isInTimeline: false
+timelineEvent: '' # Optional timeline label
 ```
 
-### Configuration System
+Image files live in `public/photos/`. The `PhotoGallery` widget queries `isInGallery: true` entries and sorts by `order`.
 
-Site config lives in `src/config.yaml` and is loaded as a Vite virtual module `astrowind:config` by the custom integration in `vendor/integration/`. Exports: `SITE`, `I18N`, `METADATA`, `APP_BLOG`, `UI`, `ANALYTICS`.
+Photo gallery uses **GLightbox loaded from CDN** (not npm) — see `src/components/widgets/PhotoGallery.astro`.
 
-## Tailwind CSS v4
+## RSVP Form
 
-Configuration is CSS-first in `src/assets/styles/tailwind.css`:
+Posts to Formspree (`https://formspree.io/f/mdavdaqy`). Fields: name, email, attending (radio), guests (select: 1 or 2), guest name, mailing address, dietary restrictions. Guest details section is hidden until "attending = yes" via inline `<script>`.
 
-- **Theme tokens:** `@theme { --color-primary: var(--aw-color-primary); ... }`
-- **Custom utilities:** `@utility bg-page { ... }`
-- **Dark mode:** Class-based via `@variant dark (&:where(.dark, .dark *))`
-- **Plugins:** `@plugin "@tailwindcss/typography"`
-- **Custom variant:** `@custom-variant intersect (&:not([no-intersect]))`
+## Deployment
 
-CSS variables for colors/fonts are defined in `src/components/CustomStyles.astro` with light/dark theme variants.
+- **GitHub Pages** via `.github/workflows/actions.yaml`: builds with `npm run build`, uploads `./dist`
+- A second workflow `static.yml` exists but uploads the raw repo (likely stale — prefer `actions.yaml`)
+- `SITE.base` is `/` — if deploying to a subpath like `/weddingSite`, update this in `src/config.ts`
 
-The Vite plugin `@tailwindcss/vite` is configured in `astro.config.ts` (not as an Astro integration).
+## Verification
 
-### Class Merging
+After changes, run:
 
-Components use `twMerge` from `tailwind-merge` v3 for conditional class composition.
-
-## Content Collections
-
-Defined in `src/content.config.ts` using the Astro v6 Content Layer API with `glob()` loader. Posts are in `src/data/post/` as `.md` or `.mdx` files.
-
-Post frontmatter: `title` (required), `publishDate`, `updateDate`, `draft`, `excerpt`, `image`, `category`, `tags`, `author`, `metadata`.
-
-## Component Patterns
-
-- Props extend interfaces from `~/types`
-- Use `class:list` for conditional classes
-- Use `twMerge()` when accepting className overrides
-- Use named slots for layout composition
-- Widget components accept standardized props (see `~/types`)
-
-## Image Handling
-
-`src/components/common/Image.astro` supports:
-
-- Local images via `astro:assets` (optimized by Sharp)
-- Remote images via Unpic CDN
-- Allowed domains (for providers Unpic can't detect, processed by Sharp): `cdn.pixabay.com`
-
-Hero images use `loading="eager"` and `fetchpriority="high"`.
-
-## Verification Checklist
-
-After changes, always verify:
-
-1. `npm run build` succeeds
-2. `npm run check` passes (astro check + ESLint + Prettier)
-3. Visual check in browser: homepage, blog, dark mode, mobile menu
+1. `npm run build` — must succeed
+2. `npm run check` — astro check + ESLint + Prettier
+3. Visual check: homepage sections, photo gallery, RSVP form, dark mode toggle
