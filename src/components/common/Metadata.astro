@@ -1,12 +1,7 @@
 ---
-import { SEO } from 'astro-seo';
-
-import type { SEOProps } from 'astro-seo';
-
 import { SITE, METADATA, I18N } from '~/config';
 import type { MetaData, MetaDataOpenGraph } from '~/types';
 import { getCanonical } from '~/utils/permalinks';
-
 import { adaptOpenGraphImages } from '~/utils/images';
 
 export interface Props extends MetaData {
@@ -20,7 +15,6 @@ const {
   robots = {},
   description,
   openGraph = {},
-  twitter = {},
 } = Astro.props;
 
 const mergedOg: MetaDataOpenGraph = {
@@ -32,75 +26,49 @@ const mergedOg: MetaDataOpenGraph = {
 };
 
 const adaptedOg = await adaptOpenGraphImages(mergedOg, Astro.site);
-
 const firstImage = adaptedOg?.images?.[0];
 
-function buildOpenGraph(og: MetaDataOpenGraph): SEOProps['openGraph'] | undefined {
-  if (!og) return undefined;
+const finalTitle = title || METADATA?.title?.default || '';
+const titleTemplate = ignoreTitleTemplate ? '%s' : METADATA?.title?.template || '%s';
+const formattedTitle = titleTemplate.replace('%s', finalTitle);
 
-  const imageUrl = firstImage?.url || '';
-  if (!imageUrl) return undefined;
+const finalDescription = description || METADATA?.description;
 
-  return {
-    basic: {
-      title: title || METADATA?.title?.default || '',
-      type: og.type || 'website',
-      image: imageUrl,
-      url: og.url,
-    },
-    optional: {
-      description: description || METADATA?.description,
-      locale: og.locale,
-      siteName: og.siteName,
-    },
-    image: {
-      url: imageUrl,
-      width: firstImage?.width,
-      height: firstImage?.height,
-      alt: title || METADATA?.title?.default || '',
-    },
-  };
-}
+const noindex =
+  typeof robots?.index !== 'undefined'
+    ? !robots.index
+    : typeof METADATA?.robots?.index !== 'undefined'
+      ? !METADATA.robots.index
+      : true;
 
-const mergedTwitter = {
-  card: (adaptedOg?.images?.length ? 'summary_large_image' : 'summary') as 'summary_large_image' | 'summary',
-  ...(METADATA?.twitter
-    ? {
-        card: METADATA.twitter.cardType as 'summary_large_image' | 'summary' | undefined,
-        site: METADATA.twitter.site,
-        creator: METADATA.twitter.handle,
-      }
-    : {}),
-  ...(twitter
-    ? {
-        card: twitter.cardType as 'summary_large_image' | 'summary' | undefined,
-        site: twitter.site,
-        creator: twitter.handle,
-      }
-    : {}),
-};
+const nofollow =
+  typeof robots?.follow !== 'undefined'
+    ? !robots.follow
+    : typeof METADATA?.robots?.follow !== 'undefined'
+      ? !METADATA.robots.follow
+      : true;
 
-const seoProps: SEOProps = {
-  title: title || METADATA?.title?.default || '',
-  titleTemplate: ignoreTitleTemplate ? '%s' : METADATA?.title?.template || '%s',
-  canonical: canonical,
-  noindex:
-    typeof robots?.index !== 'undefined'
-      ? !robots.index
-      : typeof METADATA?.robots?.index !== 'undefined'
-        ? !METADATA.robots.index
-        : true,
-  nofollow:
-    typeof robots?.follow !== 'undefined'
-      ? !robots.follow
-      : typeof METADATA?.robots?.follow !== 'undefined'
-        ? !METADATA.robots.follow
-        : true,
-  description: description || METADATA?.description,
-  openGraph: buildOpenGraph(adaptedOg),
-  twitter: mergedTwitter,
-  surpressWarnings: true,
-};
+const robotsContent = `${noindex ? 'noindex' : 'index'}, ${nofollow ? 'nofollow' : 'follow'}`;
+
+const twitterCard = firstImage ? 'summary_large_image' : 'summary';
 ---
 
-<SEO {...seoProps} />
+<title>{formattedTitle}</title>
+<link rel="canonical" href={canonical} />
+{finalDescription && <meta name="description" content={finalDescription} />}
+<meta name="robots" content={robotsContent} />
+
+<meta property="og:title" content={finalTitle} />
+<meta property="og:type" content={mergedOg?.type || 'website'} />
+<meta property="og:url" content={String(canonical)} />
+{finalDescription && <meta property="og:description" content={finalDescription} />}
+{mergedOg?.siteName && <meta property="og:site_name" content={mergedOg.siteName} />}
+{mergedOg?.locale && <meta property="og:locale" content={mergedOg.locale} />}
+{firstImage?.url && <meta property="og:image" content={firstImage.url} />}
+{firstImage?.width && <meta property="og:image:width" content={String(firstImage.width)} />}
+{firstImage?.height && <meta property="og:image:height" content={String(firstImage.height)} />}
+
+<meta name="twitter:card" content={twitterCard} />
+<meta name="twitter:title" content={finalTitle} />
+{finalDescription && <meta name="twitter:description" content={finalDescription} />}
+{firstImage?.url && <meta name="twitter:image" content={firstImage.url} />}

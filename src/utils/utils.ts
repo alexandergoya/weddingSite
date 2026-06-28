@@ -8,5 +8,3 @@ export const formatter: Intl.DateTimeFormat = new Intl.DateTimeFormat(I18N?.lang
 });
 
 export const getFormattedDate = (date: Date): string => (date ? formatter.format(date) : '');
-
-export const trim = (str = '', ch = '/') => str.replace(new RegExp(`^[${ch}]+|[${ch}]+$`, 'g'), '');

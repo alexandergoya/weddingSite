@@ -4,9 +4,33 @@ import '@fontsource/lato';
 ---
 
 <style is:inline>
-  /* Forest Theme */
-  :root[data-theme='forest'],
+  /* Sedona Theme — pulled from the invitation watercolor */
+  :root[data-theme='sedona'],
   :root:not([data-theme]) {
+    --aw-font-sans: 'Lato Variable';
+    --aw-font-serif: 'Playfair Display Variable';
+    --aw-font-heading: 'Playfair Display Variable';
+
+    --aw-color-primary: #6b8fa3;
+    --aw-color-secondary: #7a8b5c;
+    --aw-color-accent: #c0452c;
+
+    --aw-color-text-heading: #3d2b1f;
+    --aw-color-text-default: #5a453a;
+    --aw-color-text-muted: #7d6b5d;
+    --aw-color-bg-page: #fdf6f0;
+    --aw-color-bg-page-dark: #3d2b22;
+    --aw-color-bg-card: #ffffff;
+    --aw-color-border: #e8c4a0;
+
+    ::selection {
+      background-color: #6b8fa3;
+      color: #fdf6f0;
+    }
+  }
+
+  /* Forest Theme */
+  :root[data-theme='forest'] {
     --aw-font-sans: 'Lato Variable';
     --aw-font-serif: 'Playfair Display Variable';
     --aw-font-heading: 'Playfair Display Variable';
@@ -51,6 +75,20 @@ import '@fontsource/lato';
       background-color: #c67b5c;
       color: #fdf6ee;
     }
+  }
+
+  .dark[data-theme='sedona'],
+  .dark:not([data-theme]) {
+    --aw-color-primary: #8ab0c2;
+    --aw-color-secondary: #8fa372;
+    --aw-color-accent: #d9896a;
+    --aw-color-text-heading: #f5ede5;
+    --aw-color-text-default: #d9c5b2;
+    --aw-color-text-muted: #b89e86;
+    --aw-color-bg-page: #2c1f18;
+    --aw-color-bg-page-dark: #1a1210;
+    --aw-color-bg-card: #3d2b22;
+    --aw-color-border: #8ab0c2;
   }
 
   .dark[data-theme='forest'] {

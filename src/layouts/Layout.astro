@@ -6,7 +6,6 @@ import { I18N } from '~/config';
 import CommonMeta from '~/components/common/CommonMeta.astro';
 import Favicons from '~/components/Favicons.astro';
 import CustomStyles from '~/components/CustomStyles.astro';
-import ApplyColorMode from '~/components/common/ApplyColorMode.astro';
 import Metadata from '~/components/common/Metadata.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
 
@@ -21,12 +20,11 @@ const { language, textDirection } = I18N;
 ---
 
 <!doctype html>
-<html lang={language} dir={textDirection} class="2xl:text-[20px]">
+<html lang={language} dir={textDirection} data-theme="sedona" class="2xl:text-[20px]">
   <head>
     <CommonMeta />
     <Favicons />
     <CustomStyles />
-    <ApplyColorMode />
     <Metadata {...metadata} />
 
     <link rel="preconnect" href="https://images.unsplash.com" />

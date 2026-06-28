@@ -78,7 +78,6 @@ const load = async function (): Promise<Array<Post>> {
 let _posts: Array<Post>;
 
 export const isBlogEnabled = APP_BLOG.isEnabled;
-export const isRelatedPostsEnabled = APP_BLOG.isRelatedPostsEnabled;
 export const isBlogListRouteEnabled = APP_BLOG.list.isEnabled;
 export const isBlogPostRouteEnabled = APP_BLOG.post.isEnabled;
 
@@ -92,23 +91,6 @@ export const fetchPosts = async (): Promise<Array<Post>> => {
     _posts = await load();
   }
   return _posts;
-};
-
-export const findPostsByIds = async (ids: Array<string>): Promise<Array<Post>> => {
-  if (!Array.isArray(ids)) return [];
-  const posts = await fetchPosts();
-  return ids.reduce(function (r: Array<Post>, id: string) {
-    posts.some(function (post: Post) {
-      return id === post.id && r.push(post);
-    });
-    return r;
-  }, []);
-};
-
-export const findLatestPosts = async ({ count }: { count?: number }): Promise<Array<Post>> => {
-  const _count = count || 4;
-  const posts = await fetchPosts();
-  return posts ? posts.slice(0, _count) : [];
 };
 
 export const getStaticPathsBlogList = async ({ paginate }: { paginate: PaginateFunction }) => {
@@ -128,39 +110,3 @@ export const getStaticPathsBlogPost = async () => {
     props: { post },
   }));
 };
-
-export async function getRelatedPosts(originalPost: Post, maxResults: number = 4): Promise<Post[]> {
-  const allPosts = await fetchPosts();
-  const originalTagsSet = new Set(originalPost.tags ? originalPost.tags.map((tag) => tag.slug) : []);
-
-  const postsWithScores = allPosts.reduce((acc: { post: Post; score: number }[], iteratedPost: Post) => {
-    if (iteratedPost.slug === originalPost.slug) return acc;
-
-    let score = 0;
-    if (iteratedPost.category && originalPost.category && iteratedPost.category.slug === originalPost.category.slug) {
-      score += 5;
-    }
-
-    if (iteratedPost.tags) {
-      iteratedPost.tags.forEach((tag) => {
-        if (originalTagsSet.has(tag.slug)) {
-          score += 1;
-        }
-      });
-    }
-
-    acc.push({ post: iteratedPost, score });
-    return acc;
-  }, []);
-
-  postsWithScores.sort((a, b) => b.score - a.score);
-
-  const selectedPosts: Post[] = [];
-  let i = 0;
-  while (selectedPosts.length < maxResults && i < postsWithScores.length) {
-    selectedPosts.push(postsWithScores[i].post);
-    i++;
-  }
-
-  return selectedPosts;
-}

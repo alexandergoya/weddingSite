@@ -3,7 +3,6 @@ export const SITE = {
   site: 'https://ellealexander.lol',
   base: '/',
   trailingSlash: false,
-  googleSiteVerificationId: '',
 };
 
 export const I18N = {
@@ -32,18 +31,11 @@ export const METADATA = {
     ],
     type: 'website',
   },
-  twitter: {
-    handle: '',
-    site: '',
-    cardType: 'summary_large_image',
-  },
 };
 
 export const APP_BLOG = {
   isEnabled: true,
   postsPerPage: 6,
-  isRelatedPostsEnabled: false,
-  relatedPostsCount: 0,
   post: {
     isEnabled: true,
     permalink: '/%slug%',
@@ -60,33 +52,6 @@ export const APP_BLOG = {
       follow: true,
     },
   },
-  category: {
-    isEnabled: false,
-    pathname: 'category',
-    robots: {
-      index: true,
-      follow: true,
-    },
-  },
-  tag: {
-    isEnabled: false,
-    pathname: 'tag',
-    robots: {
-      index: false,
-      follow: true,
-    },
-  },
 };
 
-export const UI = {
-  theme: 'light:only',
-};
-
-export const ANALYTICS = {
-  vendors: {
-    googleAnalytics: {
-      id: null,
-      partytown: true,
-    },
-  },
-};
+export const UI = {};
