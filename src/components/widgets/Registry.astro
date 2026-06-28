@@ -5,28 +5,46 @@ import { Icon } from 'astro-icon/components';
 <section id="registry" class="py-12 md:py-16 bg-page">
   <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-8">
-      <h2 class="font-serif text-4xl md:text-5xl text-heading mb-4">Registry</h2>
+      <h2 class="font-serif text-4xl md:text-5xl text-heading mb-4 pb-2">Registry</h2>
       <p class="text-muted">
         Your presence at our wedding is the greatest gift of all, but if you'd like to give something extra,
         contributing to our buy-a-house fund is preferred.
       </p>
     </div>
 
-    <div id="registryPaymentMethods" class="grid grid-cols-2 gap-4 mt-8">
+    <div id="registryPaymentMethods" class="grid grid-cols-2 gap-4 mt-8 text-center">
       <a
-        href="https://paypal.me/AGoya251"
+        href="/zelle"
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center gap-3 p-4 rounded-lg border border-border/20 bg-card hover:bg-page transition"
+        class="flex items-center justify-center gap-3 p-4 rounded-lg border border-border/20 bg-card hover:bg-page transition"
       >
-        <Icon name="tabler:brand-paypal" class="w-6 h-6 text-primary shrink-0" />
-        <span class="text-default font-medium">Alexander's PayPal</span>
+        <Icon name="simple-icons:zelle" class="w-6 h-6 text-primary shrink-0" />
+        <span class="text-center font-medium">Alexander's Zelle</span>
+      </a>
+      <a
+        href="/zelle-elle"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center justify-center gap-3 p-4 rounded-lg border border-border/20 bg-card hover:bg-page transition"
+      >
+        <Icon name="simple-icons:zelle" class="w-6 h-6 text-primary shrink-0" />
+        <span class="text-default font-medium">Elle's Zelle</span>
       </a>
       <a
         href="https://paypal.me/AGoya251"
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center gap-3 p-4 rounded-lg border border-border/20 bg-card hover:bg-page transition"
+        class="flex items-center justify-center gap-3 p-4 rounded-lg border border-border/20 bg-card hover:bg-page transition"
+      >
+        <Icon name="tabler:brand-paypal" class="w-6 h-6 text-primary shrink-0" />
+        <span class="text-default font-medium">Alexander's PayPal</span>
+      </a>
+      <a
+        href="https://paypal.me/evargas5678"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center justify-center gap-3 p-4 rounded-lg border border-border/20 bg-card hover:bg-page transition"
       >
         <Icon name="tabler:brand-paypal" class="w-6 h-6 text-primary shrink-0" />
         <span class="text-default font-medium">Elle's PayPal</span>
@@ -35,7 +53,7 @@ import { Icon } from 'astro-icon/components';
         href="https://venmo.com/Alexander-Goya"
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center gap-3 p-4 rounded-lg border border-border/20 bg-card hover:bg-page transition"
+        class="flex items-center justify-center gap-3 p-4 rounded-lg border border-border/20 bg-card hover:bg-page transition"
       >
         <Icon name="simple-icons:venmo" class="w-6 h-6 text-primary shrink-0" />
         <span class="text-default font-medium">Alexander's Venmo</span>
@@ -44,28 +62,10 @@ import { Icon } from 'astro-icon/components';
         href="https://venmo.com/Elle-Vargas-1"
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center gap-3 p-4 rounded-lg border border-border/20 bg-card hover:bg-page transition"
+        class="flex items-center justify-center gap-3 p-4 rounded-lg border border-border/20 bg-card hover:bg-page transition"
       >
         <Icon name="simple-icons:venmo" class="w-6 h-6 text-primary shrink-0" />
         <span class="text-default font-medium">Elle's Venmo</span>
-      </a>
-      <a
-        href="/zelle"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex items-center gap-3 p-4 rounded-lg border border-border/20 bg-card hover:bg-page transition"
-      >
-        <Icon name="simple-icons:zelle" class="w-6 h-6 text-primary shrink-0" />
-        <span class="text-default font-medium">Alexander's Zelle</span>
-      </a>
-      <a
-        href="/zelle"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex items-center gap-3 p-4 rounded-lg border border-border/20 bg-card hover:bg-page transition"
-      >
-        <Icon name="simple-icons:zelle" class="w-6 h-6 text-primary shrink-0" />
-        <span class="text-default font-medium">Elle's Zelle</span>
       </a>
     </div>
   </div>

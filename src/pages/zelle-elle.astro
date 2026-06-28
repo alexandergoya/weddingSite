@@ -1,0 +1,20 @@
+---
+import Layout from '~/layouts/WeddingLayout.astro';
+
+const title = 'Zelle';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout metadata={{ title }}>
+  <section class="py-12 md:py-16 bg-page min-h-screen flex items-center">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-serif text-4xl md:text-5xl text-heading mb-8">Zelle</h2>
+      <img
+        src={`${base.replace(/\/$/, '')}/photos/ElleAlexander_72.jpg`}
+        alt="Zelle QR code"
+        class="w-full max-w-md mx-auto rounded-lg shadow-sm border border-border/20"
+      />
+      <p class="text-muted mt-6">Scan to send a gift via Zelle</p>
+    </div>
+  </section>
+</Layout>
