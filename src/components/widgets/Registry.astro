@@ -1,24 +1,71 @@
 ---
+import { Icon } from 'astro-icon/components';
 ---
 
 <section id="registry" class="py-12 md:py-16 bg-page">
   <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-8">
-      <p class="text-accent font-serif text-sm tracking-widest uppercase mb-2">Gifts & Wishes</p>
       <h2 class="font-serif text-4xl md:text-5xl text-heading mb-4">Registry</h2>
       <p class="text-muted">
-        Your presence at our wedding is the greatest gift of all. Should you wish to honor us with a gift, contributing to our wedding fund is preferred.
+        Your presence at our wedding is the greatest gift of all, but if you'd like to give something extra, contributing to
+        our buy-a-house fund is preferred.
       </p>
     </div>
 
-    <div class="text-center">
+    <div id="registryPaymentMethods" class="grid grid-cols-2 gap-4 mt-8">
       <a
-        href="https://www.honeyfund.com/site/vargas-goya-08-28-2026"
+        href="https://paypal.me/AGoya251"
         target="_blank"
         rel="noopener noreferrer"
-        class="btn-primary px-8 py-4 text-lg font-serif inline-block"
+        class="flex items-center gap-3 p-4 rounded-lg border border-border/20 bg-card hover:bg-page transition"
       >
-        Visit Our Honeyfund
+        <Icon name="tabler:brand-paypal" class="w-6 h-6 text-primary shrink-0" />
+        <span class="text-default font-medium">PayPal</span>
+      </a>
+      <a
+        href="https://paypal.me/YOURPAYPALHANDLE"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-3 p-4 rounded-lg border border-border/20 bg-card hover:bg-page transition"
+      >
+        <Icon name="tabler:brand-paypal" class="w-6 h-6 text-primary shrink-0" />
+        <span class="text-default font-medium">PayPal</span>
+      </a>
+      <a
+        href="https://venmo.com/Alexander-Goya"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-3 p-4 rounded-lg border border-border/20 bg-card hover:bg-page transition"
+      >
+        <Icon name="simple-icons:venmo" class="w-6 h-6 text-primary shrink-0" />
+        <span class="text-default font-medium">Venmo</span>
+      </a>
+      <a
+        href="https://venmo.com/YOURVENMOHANDLE"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-3 p-4 rounded-lg border border-border/20 bg-card hover:bg-page transition"
+      >
+        <Icon name="simple-icons:venmo" class="w-6 h-6 text-primary shrink-0" />
+        <span class="text-default font-medium">Venmo</span>
+      </a>
+      <a
+        href="/zelle"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-3 p-4 rounded-lg border border-border/20 bg-card hover:bg-page transition"
+      >
+        <Icon name="simple-icons:zelle" class="w-6 h-6 text-primary shrink-0" />
+        <span class="text-default font-medium">Zelle</span>
+      </a>
+      <a
+        href="/zelle"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-3 p-4 rounded-lg border border-border/20 bg-card hover:bg-page transition"
+      >
+        <Icon name="simple-icons:zelle" class="w-6 h-6 text-primary shrink-0" />
+        <span class="text-default font-medium">Zelle</span>
       </a>
     </div>
   </div>

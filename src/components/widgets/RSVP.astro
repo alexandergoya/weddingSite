@@ -5,9 +5,8 @@
 <section id="rsvp" class="py-12 md:py-16 bg-page">
   <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-8">
-      <p class="text-accent font-serif text-sm tracking-widest uppercase mb-2">Will You Join Us?</p>
       <h2 class="font-serif text-4xl md:text-5xl text-heading mb-4">RSVP</h2>
-      <p class="text-muted">Please respond by <span class="text-primary font-medium">July 17, 2026</span></p>
+      <p class="text-muted">Please respond by <span class="text-primary font-medium">July 20, 2026</span></p>
     </div>
 
     <form
@@ -59,39 +58,75 @@
         </div>
       </div>
 
-      <div>
-        <label for="guests" class="block text-sm font-medium text-default mb-2"> Number of Guests </label>
-        <select
-          id="guests"
-          name="guests"
-          class="w-full px-4 py-3 rounded-md border border-border bg-page text-default focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
-        >
-          <option value="1">1 (Just me alone in the world)</option>
-          <option value="2">2 (Me plus one hot date)</option>
-        </select>
-      </div>
+      <div id="rsvp-details" class="space-y-6 hidden">
+        <div id="guestsDropdown">
+          <label for="guests" class="block text-sm font-medium text-default mb-2"> Number of Guests </label>
+          <select
+            id="guests"
+            name="guests"
+            class="w-full px-4 py-3 rounded-md border border-border bg-page text-default focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+          >
+            <option value="1">1 (Go on with your bad self)</option>
+            <option value="2">2 (Me plus one hot date)</option>
+          </select>
+        </div>
+        <div id="guestNameDiv" class="hidden">
+          <label for="guest full name" class="block text-sm font-medium text-default mb-2"> Full Name of Guest </label>
+          <input
+            type="text"
+            id="guestname"
+            name="guestname"
+            class="w-full px-4 py-3 rounded-md border border-border bg-page text-default focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+            placeholder="Your guest's name"
+          />
+        </div>
+        <div>
+          <label for="address" class="block text-sm font-medium text-default mb-2"> Mailing Address </label>
+          <textarea
+            id="address"
+            name="address"
+            rows={3}
+            class="w-full px-4 py-3 rounded-md border border-border bg-page text-default focus:ring-2 focus:ring-primary focus:border-primary outline-none transition resize-none"
+            placeholder="Where should we send your formal invitation?"></textarea>
+        </div>
 
-      <div>
-        <label for="address" class="block text-sm font-medium text-default mb-2"> Mailing Address </label>
-        <textarea
-          id="address"
-          name="address"
-          rows={3}
-          class="w-full px-4 py-3 rounded-md border border-border bg-page text-default focus:ring-2 focus:ring-primary focus:border-primary outline-none transition resize-none"
-          placeholder="Where should we send your formal invitation?"></textarea>
+        <div>
+          <label for="dietary" class="block text-sm font-medium text-default mb-2"> Dietary Restrictions </label>
+          <textarea
+            id="dietary"
+            name="dietary"
+            rows={3}
+            class="w-full px-4 py-3 rounded-md border border-border bg-page text-default focus:ring-2 focus:ring-primary focus:border-primary outline-none transition resize-none"
+            placeholder="Any allergies or dietary needs?"></textarea>
+        </div>
       </div>
-
-      <div>
-        <label for="dietary" class="block text-sm font-medium text-default mb-2"> Dietary Restrictions </label>
-        <textarea
-          id="dietary"
-          name="dietary"
-          rows={3}
-          class="w-full px-4 py-3 rounded-md border border-border bg-page text-default focus:ring-2 focus:ring-primary focus:border-primary outline-none transition resize-none"
-          placeholder="Any allergies or dietary needs? We're also able to accommodate failing your emotional needs"></textarea>
-      </div>
-
       <button type="submit" class="w-full btn-primary py-4 text-lg font-serif"> Send RSVP </button>
+
+      <script>
+        const rsvpDetails = document.getElementById('rsvp-details');
+        const attendingRadios = document.querySelectorAll<HTMLInputElement>('input[name="attending"]');
+
+        attendingRadios.forEach((radio) => {
+          radio.addEventListener('change', () => {
+            if (radio.checked && radio.value === 'yes') {
+              rsvpDetails?.classList.remove('hidden');
+            } else {
+              rsvpDetails?.classList.add('hidden');
+            }
+          });
+        });
+
+        const guestsSelect = document.querySelector<HTMLSelectElement>('#guestsDropdown select');
+        const guestNameDiv = document.getElementById('guestNameDiv');
+
+        guestsSelect?.addEventListener('change', () => {
+          if (guestsSelect.value === '2') {
+            guestNameDiv?.classList.remove('hidden');
+          } else {
+            guestNameDiv?.classList.add('hidden');
+          }
+        });
+      </script>
     </form>
   </div>
 </section>
