@@ -1,7 +1,7 @@
 ---
 title: 'We Are Getting Hitched!'
 publishDate: 2026-06-27
-excerpt: 'We are getting married on October 15, 2026 at TBD. Save the date!'
+excerpt: 'We are getting married on October 16, 2026 at TBD. Save the date!'
 draft: false
 ---
 

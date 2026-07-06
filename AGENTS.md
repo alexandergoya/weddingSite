@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Single-page wedding website for Elle & Alexander (October 15, 2026). Built on the AstroWind template (Astro v6 + Tailwind CSS v4), heavily customized with wedding-specific widgets.
+Single-page wedding website for Elle & Alexander (October 16, 2026). Built on the AstroWind template (Astro v6 + Tailwind CSS v4), heavily customized with wedding-specific widgets.
 
 **Stack:** Astro v6 | Tailwind CSS v4 | TypeScript 5.9 | Sharp
 

@@ -12,10 +12,10 @@ export const I18N = {
 
 export const METADATA = {
   title: {
-    default: 'Elle & Alexander — October 15, 2026',
+    default: 'Elle & Alexander — October 16, 2026',
     template: '%s — Elle & Alexander',
   },
-  description: 'Join us as we celebrate the marriage of Elle and Alexander on October 15, 2026 at TBD.',
+  description: 'Join us as we celebrate the marriage of Elle and Alexander on October 16, 2026 at TBD.',
   robots: {
     index: true,
     follow: true,
