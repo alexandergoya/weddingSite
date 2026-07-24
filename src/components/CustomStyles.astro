@@ -77,6 +77,30 @@ import '@fontsource/lato';
     }
   }
 
+  /* Celebration Theme — cerulean, leaf green, sunset orange, dark fuchsia */
+  :root[data-theme='celebration'] {
+    --aw-font-sans: 'Lato Variable';
+    --aw-font-serif: 'Playfair Display Variable';
+    --aw-font-heading: 'Playfair Display Variable';
+
+    --aw-color-primary: #007ba7;
+    --aw-color-secondary: #328d02;
+    --aw-color-accent: #e46d19;
+
+    --aw-color-text-heading: #a62a73;
+    --aw-color-text-default: #2c3e42;
+    --aw-color-text-muted: #5a6e72;
+    --aw-color-bg-page: #f5f9fa;
+    --aw-color-bg-page-dark: #102026;
+    --aw-color-bg-card: #ffffff;
+    --aw-color-border: #b8d4e3;
+
+    ::selection {
+      background-color: #007ba7;
+      color: #f5f9fa;
+    }
+  }
+
   .dark[data-theme='sedona'],
   .dark:not([data-theme]) {
     --aw-color-primary: #8ab0c2;
@@ -115,5 +139,18 @@ import '@fontsource/lato';
     --aw-color-bg-page-dark: #1a1210;
     --aw-color-bg-card: #3d2b22;
     --aw-color-border: #d4956a;
+  }
+
+  .dark[data-theme='celebration'] {
+    --aw-color-primary: #4db8d9;
+    --aw-color-secondary: #5cb85c;
+    --aw-color-accent: #ff9a5e;
+    --aw-color-text-heading: #f5f0e8;
+    --aw-color-text-default: #d1e0e6;
+    --aw-color-text-muted: #8ba3ad;
+    --aw-color-bg-page: #0d1f26;
+    --aw-color-bg-page-dark: #081419;
+    --aw-color-bg-card: #142a33;
+    --aw-color-border: #4db8d9;
   }
 </style>
