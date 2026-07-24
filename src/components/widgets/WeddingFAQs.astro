@@ -4,12 +4,25 @@ import { Icon } from 'astro-icon/components';
 const faqs = [
   {
     question: "What's the dress code?",
-    answer:
-      'Cocktail attire - wear something elegant but comfortable. Our colors are cerulean and leaf green but those are just suggestions.',
+    answer: `Cocktail attire — wear something elegant but comfortable. Our colors are cerulean, leaf green, sunset orange, and dark fuchsia; use them as inspiration if you like (they also make up this sick website theme).
+      <div class="flex flex-wrap gap-3 mt-4">
+        <div class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-white shadow-sm" style="background-color: #007BA7;">
+          <span class="w-4 h-4 rounded-full border border-white/40 bg-white/20"></span> Cerulean
+        </div>
+        <div class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-white shadow-sm" style="background-color: #328D02;">
+          <span class="w-4 h-4 rounded-full border border-white/40 bg-white/20"></span> Leaf Green
+        </div>
+        <div class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-white shadow-sm" style="background-color: #e46d19;">
+          <span class="w-4 h-4 rounded-full border border-white/40 bg-white/20"></span> Sunset Orange
+        </div>
+        <div class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-white shadow-sm" style="background-color: #a62a73;">
+          <span class="w-4 h-4 rounded-full border border-white/40 bg-white/20"></span> Dark Fuchsia
+        </div>
+      </div>`,
   },
   {
     question: 'Is there parking at the venue?',
-    answer: 'Short answer: yes.',
+    answer: 'The Doyle has plenty of parking available',
   },
   {
     question: 'Are children welcome?',
@@ -43,7 +56,7 @@ const faqs = [
                 class="w-5 h-5 text-muted transition-transform duration-200 group-open:rotate-180"
               />
             </summary>
-            <div class="px-6 pb-6 text-muted leading-relaxed">{faq.answer}</div>
+            <div class="px-6 pb-6 text-muted leading-relaxed" set:html={faq.answer} />
           </details>
         ))
       }
