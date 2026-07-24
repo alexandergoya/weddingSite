@@ -76,11 +76,12 @@ CSS variables for colors/fonts defined in `src/components/CustomStyles.astro`.
 
 ## Theme System
 
-Three themes controlled by `data-theme` attribute on `:root`:
+Four themes controlled by `data-theme` attribute on `:root`:
 
 - **sedona** (default) — dusty blue/terracotta, the invitation watercolor palette
 - **forest** — deep greens, earth tones
 - **desert** — warm terracotta, sandy beige
+- **celebration** — cerulean blue, leaf green, sunset orange, carmine red
 
 All theme tokens live in `src/components/CustomStyles.astro` with light + dark variants. Fonts: Playfair Display Variable (serif/heading) + Lato Variable (sans).
 
