@@ -6,6 +6,6 @@ draft: false
 image: 'https://images.neonmuseum.org/uploads/2024/04/NB-Gallery-1.jpg'
 ---
 
-We will be attending the Neon Museum in Las Vegas at 7:00 PM on Saturday, October 17th! 
+We will be attending the Neon Museum in Las Vegas at 7:30 PM on Saturday, October 17th!
 
-You can find more information and tickets here: [The Neon Museum](https://www.neonmuseum.com/)
+Tickets can be purchased on-site and do not need to be purchased in advance. You can find more information here: [The Neon Museum](https://www.neonmuseum.com/)
